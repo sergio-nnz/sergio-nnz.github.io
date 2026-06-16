@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Dice AR — Sergio Núñez Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Intro -->
+			<section id="one">
+				<div class="container">
+					<header class="major">
+						<p><a href="../index.html#three">&larr; Back to portfolio</a></p>
+						<h2>Dice AR</h2>
+					</header>
+					<p>Dice AR is an augmented-reality dice roller for iOS. Point your phone at a real surface &mdash; a
+						table, a floor, a dice tray &mdash; pick your dice, and throw. Physics-simulated dice tumble onto
+						the surface in front of you and report the total once they settle.</p>
+					<div style="display: flex; justify-content: center;">
+						<img src="../images/ardice/ardice_d20_floor.jpg"
+							alt="Ten D20 dice scattered across a living-room floor in AR" loading="lazy" decoding="async"
+							style="width: 60%; max-width: 320px; border-radius: 4px;" />
+					</div>
+				</div>
+			</section>
+
+			<!-- Gallery -->
+			<section id="gallery">
+				<div class="container">
+					<h3>Roll anywhere, any dice</h3>
+					<p>Throw anywhere from one to ten dice at once, and switch between dice types &mdash; D4, D6, D20, and
+						any other convex die. Each die is a real rigid body: it bounces, collides, and settles on the
+						detected surface before the app reads the top face and sums the roll.</p>
+					<div class="media-grid">
+						<img src="../images/ardice/ardice_d6_bar.jpg" alt="Two D6 dice resting on a console table in AR"
+							loading="lazy" decoding="async" />
+						<img src="../images/ardice/ardice_d6_tray.jpg" alt="Two D6 dice in a leather dice tray in AR"
+							loading="lazy" decoding="async" />
+						<img src="../images/ardice/ardice_d4_balcony.jpg"
+							alt="Two D4 tetrahedral dice on a balcony table in AR" loading="lazy" decoding="async" />
+					</div>
+				</div>
+			</section>
+
+			<!-- Under the hood -->
+			<section id="tech">
+				<div class="container">
+					<h3>Under the hood</h3>
+					<p>Dice AR is built in <strong>Unity 6</strong> with <strong>AR Foundation</strong> (ARKit on iOS)
+						and the <strong>XR Interaction Toolkit</strong>, in C#. Surface detection uses AR plane tracking;
+						the dice run on Unity's physics solver.</p>
+					<p>The architecture is deliberately small and event-driven. Dice are recycled through an object pool
+						rather than instantiated per throw. Each die self-reports when its rigid body goes to sleep
+						&mdash; gated by a minimum settle time so a die paused mid-arc isn't read early &mdash; and a
+						single roller aggregates the results. The face pointing up is found from the dot product of each
+						face marker against world up, which works for any convex die with no per-die-type code. One
+						configurable prefab generalises from a D6 to a D20 by pointing its markers at the new faces
+						&mdash; no new classes, no factory.</p>
+				</div>
+			</section>
+
+			<!-- Privacy & support -->
+			<section id="links">
+				<div class="container">
+					<h3>Privacy &amp; support</h3>
+					<p>Dice AR collects no personal information and has no ads or accounts.</p>
+					<ul>
+						<li><a href="ardice-privacy.html">Privacy Policy</a></li>
+						<li><a href="ardice-support.html">Support</a></li>
+						<!-- TODO: add the App Store link here once the listing is live
+						<li><a href="">Download on the App Store</a></li>
+						-->
+					</ul>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<section id="footer">
+				<div class="container">
+					<p><a href="../index.html#three">&larr; Back to portfolio</a></p>
+					<ul class="copyright">
+						<li>&copy; Sergio Núñez. All rights reserved.</li>
+						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</section>
+
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/browser.min.js"></script>
+	<script src="../assets/js/breakpoints.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
