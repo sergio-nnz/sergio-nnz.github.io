@@ -63,9 +63,9 @@
 						rather than instantiated per throw. Each die self-reports when its rigid body goes to sleep
 						&mdash; gated by a minimum settle time so a die paused mid-arc isn't read early &mdash; and a
 						single roller aggregates the results. The face pointing up is found from the dot product of each
-						face marker against world up, which works for any convex die with no per-die-type code. One
-						configurable prefab generalises from a D6 to a D20 by pointing its markers at the new faces
-						&mdash; no new classes, no factory.</p>
+						face marker against world up, which works for any convex die with no per-die-type code. Die types are data rather than code: each is an entry in a ScriptableObject dice database
+						that pairs a dedicated prefab with its metadata &mdash; sides, icon, and display name &mdash; so
+						adding a die is a configuration step, not a code change.</p>
 				</div>
 			</section>
 
